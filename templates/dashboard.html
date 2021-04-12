@@ -1,0 +1,46 @@
+{% extends "layout.html"  %}
+
+{% block  body  %}
+<h3>Control Dashboard </h3>
+<small>welcome ,dear {{session["username"]}}</small>
+<hr>
+<a href="/addarticle"  class="btn btn-outline-primary">Add Article</a>
+<br><br>
+
+{% if articles %}
+<table class="table table-hover table-sm">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">title</th>
+        <th scope="col">Created Date</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+        <tr>
+            <th>{{article.id}}</th>
+            <td><a href="/open/{{article.id}}">{{article.title}}</a></td>
+            <td>{{article.date_article}}<td>
+            <a href="/edit/{{article.id}}" class="btn btn-success">Update</a>
+            <a href="/delete/{{article.id}}" class="btn btn-danger">Delete</a>
+          </tr>
+
+
+        {% endfor %}
+
+
+      
+    </tbody>
+  </table>
+{% else %}
+
+<div class="alert alert-warning" >sizin meqaleniz yoxdur.. </div>
+
+{% endif  %}
+
+
+{% endblock  %}

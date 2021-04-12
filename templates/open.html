@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+{% if data %}
+<h3>{{data.title}}</h3>
+<hr>
+<strong>Tarix:</strong>  {{data.date_article}}
+<hr>  
+<strong>Mezmun:</strong> {{data.content|safe}}
+{% else %}
+
+<div class="alert alert-warning">bele bir meqale tapilmir..</div>
+
+{% endif  %}
+
+{% endblock  %}

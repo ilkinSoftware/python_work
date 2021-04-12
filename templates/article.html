@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h3>ARTICALE</h3>
+<hr>
+{% if articles %}
+<form action="/search" method="POST"> 
+
+  <input type="text" class="input-sm" name="keyword" maxlength="64" placeholder="Search">
+  <button type="submit" class="btn btn-outline-success ">AXTAR</button>
+
+</form>
+
+
+<hr>
+
+<ul class="list-group">
+    {% for article in articles %}
+    <li class="list-group-item"><a href="/open/{{article.id}}">{{article.title}}</a></li>
+    
+    {% endfor %}
+    
+  </ul>
+
+{% else %}
+<div class="alert alert-danger">maqale yoxdur.... </div>
+
+{% endif %}
+
+
+{% endblock %}
